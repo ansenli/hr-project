@@ -1,11 +1,17 @@
 <template>
     <div>
-        <h1>page2</h1>
+        <Row>
+            <Col span="12">
+                <DatePicker type="date" placeholder="Select date" style="width: 200px"></DatePicker>
+            </Col>
+            <Col span="12">
+                <DatePicker type="daterange" placement="bottom-end" placeholder="Select date" style="width: 200px"></DatePicker>
+            </Col>
+        </Row>
     </div>
 </template>
-
 <script>
-export default {
-    name: 'page2'
-};
+    export default {
+        name:'page2'
+    }
 </script>
