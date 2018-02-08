@@ -5,10 +5,10 @@ import { appRouter } from './router/router';
 import store from './store';
 import App from './app.vue';
 import 'iview/dist/styles/iview.css';
-import VueI18n from 'vue-i18n';
+//import VueI18n from 'vue-i18n';
 import util from './libs/util';
 Vue.use(iView);
-Vue.use(VueI18n);
+//Vue.use(VueI18n);
 new Vue({
     el: '#app',
     router: router,
@@ -19,6 +19,7 @@ new Vue({
     },
     mounted () {
         this.currentPageName = this.$route.name;
+        console.log("this.$route....",this.$route)
         // 显示打开的页面的列表
         this.$store.commit('setOpenedList');
         this.$store.commit('initCachepage');
@@ -29,6 +30,7 @@ new Vue({
     },
     created() {
         let tagsList = [];
+        console.log("appRouter....",appRouter)
         appRouter.map((item) => {
             if (item.children.length <= 1) {
                 tagsList.push(item.children[0]);
@@ -36,6 +38,7 @@ new Vue({
                 tagsList.push(...item.children);
             }
         });
+        console.log("tagsList...", tagsList)
         this.$store.commit('setTagsList', tagsList);
     }
 });
